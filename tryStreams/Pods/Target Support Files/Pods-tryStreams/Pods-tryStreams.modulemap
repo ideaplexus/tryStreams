@@ -1,0 +1,6 @@
+framework module Pods_tryStreams {
+  umbrella header "Pods-tryStreams-umbrella.h"
+
+  export *
+  module * { export * }
+}
