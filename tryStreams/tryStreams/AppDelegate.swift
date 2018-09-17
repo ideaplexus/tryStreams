@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AWSKinesisVideo
+import AWSAuthCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let credential: AWSCredentialsProvider = AWSStaticCredentialsProvider.init(accessKey: "AKIAJ5BN7PFWMHLZNXTQ", secretKey: "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")
+        let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credential)
+        AWSKinesisVideo.register(with: configuration!, forKey: "ayyappa-client")
         // Override point for customization after application launch.
         return true
     }

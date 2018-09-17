@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Y6K-H0-pX9">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--WebRTC Demo-->
+        <scene sceneID="wQg-tq-qST">
+            <objects>
+                <viewController id="whP-gf-Uak" customClass="HMRoomViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a room identifier" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TgC-b4-g6h">
+                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWX-ui-BNZ">
+                                <rect key="frame" x="20" y="134" width="335" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.33725490200000002" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="adobeRGB1998"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="56n-u3-x1L"/>
+                                </constraints>
+                                <state key="normal" title="Call">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="doCallRoom:" destination="whP-gf-Uak" eventType="touchUpInside" id="xio-JH-5Re"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OWX-ui-BNZ" firstAttribute="top" secondItem="TgC-b4-g6h" secondAttribute="bottom" constant="20" id="CcB-yE-NMb"/>
+                            <constraint firstItem="TgC-b4-g6h" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="20" id="J6g-ia-iUr"/>
+                            <constraint firstAttribute="trailing" secondItem="TgC-b4-g6h" secondAttribute="trailing" constant="20" id="dp5-4f-uei"/>
+                            <constraint firstItem="OWX-ui-BNZ" firstAttribute="trailing" secondItem="TgC-b4-g6h" secondAttribute="trailing" id="gtJ-dc-p1A"/>
+                            <constraint firstItem="TgC-b4-g6h" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="20" id="q0F-Jf-qeE"/>
+                            <constraint firstItem="OWX-ui-BNZ" firstAttribute="leading" secondItem="TgC-b4-g6h" secondAttribute="leading" id="qdz-bT-qa7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="WebRTC Demo" id="gpm-DJ-Mdr"/>
+                    <connections>
+                        <outlet property="roomText" destination="TgC-b4-g6h" id="uod-sv-gy5"/>
+                        <segue destination="bto-Cu-t67" kind="show" identifier="startRTC" id="KsL-PR-kb9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169" y="432"/>
+        </scene>
+        <!--Video Call View Controller-->
+        <scene sceneID="Uum-ls-kEg">
+            <objects>
+                <viewController id="bto-Cu-t67" customClass="HMVideoCallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jOW-xU-xhA"/>
+                        <viewControllerLayoutGuide type="bottom" id="oGB-do-S1V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J1e-JI-hnB" customClass="HMVideoCallView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="videoCallView" destination="J1e-JI-hnB" id="P8A-xB-1SY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="By2-4t-G2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1945" y="432"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gBQ-lZ-VbW">
+            <objects>
+                <navigationController id="Y6K-H0-pX9" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yyF-If-Qqy">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NoT-Fa-isZ" kind="relationship" relationship="rootViewController" id="qrf-yX-GlL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z6p-Rn-zko" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1106" y="1121"/>
+        </scene>
+        <!--Broadcast View Controller-->
+        <scene sceneID="aBq-Jy-TLa">
+            <objects>
+                <viewController id="NoT-Fa-isZ" customClass="BroadcastViewController" customModule="HMWebRTC_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6ti-8T-v4v"/>
+                        <viewControllerLayoutGuide type="bottom" id="XSf-iH-WXF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oqj-bU-H6I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XhV-s6-9L3">
+                                <rect key="frame" x="171" y="141" width="32" height="30"/>
+                                <state key="normal" title="start"/>
+                                <connections>
+                                    <action selector="startPressed:" destination="NoT-Fa-isZ" eventType="touchDown" id="CiI-3J-S6q"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fL8-bt-P95">
+                                <rect key="frame" x="166" y="194" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s1e-J3-C8k">
+                                <rect key="frame" x="0.0" y="223" width="375" height="444"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="444" id="jgX-Am-QuJ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="NoT-Fa-isZ" id="tpk-Id-RCL"/>
+                                </connections>
+                            </webView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="broadcast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqw-zt-WeH">
+                                <rect key="frame" x="135" y="81" width="125" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fL8-bt-P95" firstAttribute="centerX" secondItem="Oqj-bU-H6I" secondAttribute="centerX" id="8Xd-Uq-XQ6"/>
+                            <constraint firstItem="Tqw-zt-WeH" firstAttribute="centerX" secondItem="Oqj-bU-H6I" secondAttribute="centerX" constant="10" id="JHs-wk-LyI"/>
+                            <constraint firstItem="XhV-s6-9L3" firstAttribute="centerY" secondItem="Oqj-bU-H6I" secondAttribute="centerY" constant="-177.5" id="Ont-nH-xSC"/>
+                            <constraint firstAttribute="trailing" secondItem="s1e-J3-C8k" secondAttribute="trailing" id="aKP-7Z-m7z"/>
+                            <constraint firstItem="XSf-iH-WXF" firstAttribute="top" secondItem="s1e-J3-C8k" secondAttribute="bottom" id="l6N-O2-1Ep"/>
+                            <constraint firstItem="Tqw-zt-WeH" firstAttribute="centerY" secondItem="Oqj-bU-H6I" secondAttribute="centerY" constant="-235" id="nLM-NJ-HNC"/>
+                            <constraint firstItem="fL8-bt-P95" firstAttribute="centerY" secondItem="Oqj-bU-H6I" secondAttribute="centerY" constant="-129" id="oQ0-C2-g3G"/>
+                            <constraint firstItem="s1e-J3-C8k" firstAttribute="leading" secondItem="Oqj-bU-H6I" secondAttribute="leading" id="rSn-eJ-HDd"/>
+                            <constraint firstItem="XhV-s6-9L3" firstAttribute="centerX" secondItem="Oqj-bU-H6I" secondAttribute="centerX" id="xLF-zB-Ba9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HZR-SC-mAI"/>
+                    <connections>
+                        <outlet property="roomNameLabel" destination="fL8-bt-P95" id="1kx-Yy-5nd"/>
+                        <outlet property="webview" destination="s1e-J3-C8k" id="GKP-kM-hWF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWf-Ci-4Ih" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1951.2" y="1121.2893553223389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9FX-IS-FUW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TWL-Gp-zaw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RGB-qs-JjB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="whP-gf-Uak" kind="relationship" relationship="rootViewController" id="0ug-CW-QwF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrg-ej-XGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="304.80000000000001" y="432.23388305847078"/>
+        </scene>
+    </scenes>
+</document>
