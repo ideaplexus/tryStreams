@@ -1,0 +1,6 @@
+framework module Pods_HMWebRTC_Tests {
+  umbrella header "Pods-HMWebRTC_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
